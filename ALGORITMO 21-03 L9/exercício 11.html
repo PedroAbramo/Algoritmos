@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+</head>
+
+<body>
+<center>
+    <p>Informe qual tabuada você deseja ver:</p>
+    <select id="ipt_tabuada">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+
+    <p>Até que número a tabuada deve ser construida?</p>
+    <input type="number" name="" id="ipt_n">
+        <br><br>
+
+    <button onclick="calculo()">Ver Tabuada</button>
+        <br><br>
+    <div id="div_exibir"></div>
+</center>
+</body>
+
+</html>
+
+<script>
+    function calculo() {
+        var tabuada = Number(ipt_tabuada.value)
+        var num = Number(ipt_n.value)
+        
+        contador = 0
+        
+            div_exibir.innerHTML = ""
+            while (contador < num) {
+            // ternário | se o resultado da divisão por 2 for "true" ele fornecerá o red, se for false, fornecerá blue
+            var cor = (contador % 2 === 0) ? "red" : "blue" 
+            div_exibir.innerHTML += `<span style = "color: ${cor}">${tabuada} x ${++contador} = ${tabuada * contador}</span><br>`
+            
+            div_exibir.innerHTML += `<span style = "color: ${cor}">`
+        
+        }
+    }
+
+    // <span style = "background-color: white; color: black">
+</script>

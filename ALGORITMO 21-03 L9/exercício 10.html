@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Quantas voltas o carro dará na corrida?</p>
+    <input type="number" name="" id="ipt_voltas">
+        <br><br>
+    
+    <button onclick="calculo()">Iniciar corrida!</button>
+        <br><br>
+    <div id="div_exibir"></div>
+    
+</body>
+
+</html>
+
+<script>
+    function calculo() {
+        var voltas = Number(ipt_voltas.value)
+        
+        contador = 0
+
+        while (contador < voltas) {
+            div_exibir.innerHTML += `Carro dando a <b>${++contador}ª</b> volta <br>`
+        }
+        contador++
+
+        if(voltas = contador) {
+            div_exibir.innerHTML += `<br> <b>Corrida finalizada!</b>`
+        }
+
+    }
+</script>
