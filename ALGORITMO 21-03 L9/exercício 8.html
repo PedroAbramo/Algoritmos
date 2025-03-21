@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Informe um número</p>
+    <input type="number" id="ipt_n1">
+
+    <p>Informe uma frase</p>
+    <input type="text" name="" id="ipt_frase">
+        <br><br>
+
+    <button onclick="calculo()">Papagaio</button>
+</body>
+
+</html>
+
+<script>
+    function calculo() {
+        var num = Number(ipt_n1.value)
+        var frase = ipt_frase.value
+
+        contador = 0
+
+        while (contador < num) {
+            alert(`${frase}`)
+            num --
+        }
+    }
+</script>

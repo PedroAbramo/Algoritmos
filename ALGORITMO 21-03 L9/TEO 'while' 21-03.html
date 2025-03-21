@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="contar()">Contar</button>
+        <br><br>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function contar() {
+        var contador = 10
+
+        while (contador > 0) {
+            // o '%' representa que o resultado exibido será o resto da divisão, não o resultado  da divisão
+            div_mensagem.innerHTML += `Contador: ${contador} <BR>`// o '++' funciona como uma espécie de +1
+            contador--  ; 
+            
+        }
+    }
+</script>
