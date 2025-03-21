@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    Energia consumida em kWh:
+    <input type="number" name="" id="ipt_energia"> <br>
+
+    Bandeira da tarifa da energia:
+    <input type="text" name="" id="ipt_bandeira"> <br> 
+    <!-- "vermelha", "amarela" ou "verde"). -->
+
+    Quantidade de MB do plano de internet:
+    <input type="number" name="" id="ipt_internet"> <br>
+
+    Possui linha telefônica vinculada?
+    <input type="text" name="" id="ipt_telefone"> <br>
+    <!-- sim ou não -->
+
+    <button onclick="calculo()">Calcular Despesas Fixas</button> <br>
+
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+    function calculo(){
+        var energia = Number(ipt_energia.value)
+        var bandeira = ipt_bandeira.value
+        var MBinternet = Number(ipt_internet.value)
+        var linhaT = ipt_telefone.value
+
+        if (bandeira == 'vermelha'){
+            var energiaRED = (energia * 1)
+            //div_mensagem.innerHTML = `gasto com energia = ${energiaRED}`
+            console.log('teste1')
+            var CONTA = energiaRED
+
+        } else if (bandeira == 'amarela'){
+            var energiaAMARELA = (energia * 0.9)
+            //div_mensagem.innerHTML = `gasto com energia = ${energiaAMARELA}`
+            console.log('teste2')
+            var CONTA = energiaAMARELA
+
+        } else if (bandeira == 'verde'){
+            var energiaVERDE = (energia * 0.75)
+            //div_mensagem.innerHTML = `gasto com energia = ${energiaVERDE}`
+            console.log('teste3')
+            var CONTA = energiaVERDE
+
+        } if (energia <= 50){
+            if (bandeira == 'vermelha'){
+            var DescontoEnergiaRED = energiaRED * 0.9
+            var CONTA = DescontoEnergiaRED}
+
+            if (bandeira == 'amarela'){
+            var DescontoEnergiaAMARELA = energiaAMARELA * 0.9
+            var CONTA = DescontoEnergiaAMARELA}
+
+            if (bandeira == 'verde'){
+            var DescontoEnergiaVERDE = energiaVERDE * 0.9
+            var CONTA = DescontoEnergiaVERDE}
+
+            //div_mensagem.innerHTML = `gasto com energia = ${DescontoEnergiaRED}`
+            console.log('teste4')
+        } 
+
+        var contaInternet = MBinternet * 0.8
+
+        if (linhaT == 'sim'){
+            var contaCOMlinha = contaInternet * 1.35
+
+            console.log("teste5")
+
+            var total = CONTA + contaCOMlinha
+
+            div_mensagem.innerHTML = `Com o consumo de ${energia} kWh na bandeira ${bandeira}, a conta de energia totaliza R$${CONTA}. 
+        Com o consumo de ${MBinternet} MB de internet, o valor do plano de internet/telefone totaliza R$${contaCOMlinha}. 
+        Gasto total de despesas mensal: R$${total}.`
+
+        }
+
+        else if (linhaT == 'não'){  
+            var contaSEMlinha = contaInternet * 0.925
+    
+            console.log("teste6")
+
+            var total = CONTA + contaSEMlinha
+
+            div_mensagem.innerHTML = `Com o consumo de ${energia} kWh na bandeira ${bandeira}, a conta de energia totaliza R$${CONTA}. 
+        Com o consumo de ${MBinternet} MB de internet, o valor do plano de internet/telefone totaliza R$${contaSEMlinha}. 
+        Gasto total de despesas mensal: R$${total}.`
+        }
+    }
+</script>

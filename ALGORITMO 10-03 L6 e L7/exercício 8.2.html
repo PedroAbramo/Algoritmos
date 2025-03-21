@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Nome da empresa</p>
+    <input type="text" name="" id="ipt_nome">
+
+    <p>Valor da bolsa da empresa</p>
+    <input type="number" name="" id="ipt_bolsa">
+
+    <p>Valor do VR</p>
+    <input type="number" name="" id="ipt_VR">
+
+    <p>Tempo de deslocamento da empresa p/ SPTech em mininutos</p>
+    <input type="number" name="" id="ipt_tempo">
+        <br><br>
+
+    <button onclick="calculo()">É preferida</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function calculo(){
+        var nomeEmpresa = ipt_nome.value
+        var bolsa = Number(ipt_bolsa.value)
+        var VR = Number(ipt_VR.value)
+        var tempo = Number(ipt_tempo.value)
+
+
+        if(bolsa >=1800 || VR >= 20 || tempo <= 30){
+            div_mensagem.innerHTML = `A empresa ${nomeEmpresa} é uma de suas preferências`
+        } else {
+            div_mensagem.innerHTML = `A empresa ${nomeEmpresa} está fora da sua lista`
+        }
+
+    }
+</script>

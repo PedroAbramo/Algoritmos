@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Informe sua renda</p>
+    <input type="number" name="" id="ipt_renda_usuario">
+
+    <p>Informe sua renda total familiar</p>
+    <input type="number" name="" id="ipt_renda_familiar">
+        <br><br>
+
+    <button onclick="calculo()">Terei o benefício</button>
+</body>
+
+</html>
+<script>
+    function calculo(){
+        var rendaUsu = Number(ipt_renda_usuario.value)
+        var rendaFam = Number(ipt_renda_familiar.value)
+
+        if (rendaUsu <= 2000 || rendaFam <= 3000){
+            alert('Você terá direito ao auxílio')
+        } else {
+            alert('Sem direito ao auxílio')
+        }
+    }
+</script>

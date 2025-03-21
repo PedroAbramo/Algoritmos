@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Calculadora de cansaço do aluno SPTech</h2>
+
+    <p>Meio de transporte</p>
+    <input type="text" name="" id="ipt_transporte">
+        <br><br>
+
+    <button onclick="calculo()">Calcular cansaço</button>
+
+</body>
+
+</html>
+
+<script>
+    function calculo(){
+        var transporte = ipt_transporte.value
+
+        if(transporte == 'Carro' || transporte == 'Uber'){
+            alert('Tá tranquilo...')
+        } else if (transporte == 'Metrô' || transporte == 'Ônibus'){
+            alert('Um pouco cansado')
+        } else if (transporte == 'Bicicleta'){
+            alert('Vish... vive cansado.')
+        }
+    }
+</script>

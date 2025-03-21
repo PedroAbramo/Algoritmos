@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Informe a quantidade de filhos:</p>
+    <input type="number" name="" id="ipt_filhos">
+    <br><br>
+
+    <button onclick="calculo()">Analisar família</button>
+    <br><br>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+        function calculo() {
+            var filhos = Number(ipt_filhos.value)
+
+            if (filhos >= 1) {
+                div_mensagem.innerHTML = `Não tem TV`
+            } if (filhos >= 2) { 
+                div_mensagem.innerHTML += `<br> Não tem internet`
+            } if (filhos >= 3) {
+                div_mensagem.innerHTML += `<br> Não tem video game`                  
+            } if (filhos >= 4) {
+                div_mensagem.innerHTML += `<br> Não tem netflix`                 
+            } if (filhos <= 0) {
+                div_mensagem.innerHTML = `Tem tudo e mais um pouco`                
+            }
+            console.log("teste1")
+        }
+    
+
+</script>

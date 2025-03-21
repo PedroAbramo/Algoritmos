@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Informe a temperatura atual:</p>
+    <input type="number" name="" id="ipt_temperatura">
+      <br><br>
+
+    <button onclick="calculo()">Temperatura</button>
+        <br><br>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+<script>
+    function calculo(){
+        var temperatura = Number(ipt_temperatura.value)
+
+ /*                                           Jeito desnecessariamente grande de se fazer...
+        if(temperatura >= 21){
+            if (temperatura <= 24){
+                alert('temperatura confortável :D')
+            } else {
+                alert('Temperatura DESCONFORTÁVEL :C')
+            }
+        } else {
+            alert('Temperatura DESCONFORTÁVEL')
+        }*/
+
+//                                            Jeito de quem é experto de se fazer
+
+        if (temperatura >= 21 && temperatura <= 24){
+            alert('Temperatura CONFORTÁVEL :D')
+        } else {
+            alert('Temperatura DESCONFORTÁVEL :C')
+        }
+
+        // possível verificar outras variáveis também, não necessariamente precisar ser uma só
+        if ((temperatura >= 24) && (calor <= 24)){}
+    
+        
+        // verificando se a temperatura é menor que 21 OU maior que 24, mesmas regras do && (E)
+        if (temperatura < 21 || temperatura > 24){   
+        }
+    }
+</script>

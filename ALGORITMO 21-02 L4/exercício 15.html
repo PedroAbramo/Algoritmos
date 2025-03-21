@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Informe o saldo da conta:</p>
+    <input type="number" name="" id="ipt_saldo">
+
+    <p>Informe o valor do débito:</p>
+    <input type="number" name="" id="ipt_debito">
+    <br><br>
+
+    <button onclick="calculo()">Analisar conta:</button>
+    <br><br>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function calculo(){
+        var saldo = Number(ipt_saldo.value)
+        var debito = Number(ipt_debito.value)
+        var resultado = (saldo - debito)
+
+        if (resultado < 0){
+        div_mensagem.innerHTML = `<span style = "color: red"><b> O saldo atual da conta corrente é ${resultado}</b>`
+        } else {
+            div_mensagem.innerHTML = `<span style = "color: blue"> <i>O saldo atual da conta corrente é ${resultado}</i>`
+        }
+    }
+</script>

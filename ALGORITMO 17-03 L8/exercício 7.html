@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Login:</p>
+    <input type="text" name="" id="ipt_login">
+
+    <p>Senha:</p>
+    <input type="password" name="" id="ipt_senha">
+
+    <p>Informação pessoal:</p>
+    <input type="text" name="" id="ipt_pessoal">
+        <br><br>
+
+    <button onclick="calculo()">Autenticar</button>
+        <br><br>
+        <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    var tentativas = 3 
+
+    function calculo() {
+        var login = ipt_login.value
+        var senha = ipt_senha.value
+        var info = ipt_pessoal.value
+
+        if (tentativas >= 1 && login == 'ana' && senha == 'braga' && (info == '1949' || info == 'louro josé')) {
+            div_mensagem.innerHTML = `Usuário autenticado`
+
+            console.log('teste1')
+
+        } else if (tentativas >= 1) {
+            tentativas = tentativas - 1
+            div_mensagem.innerHTML = `Falha na autenticação`
+            div_mensagem.innerHTML += `<br>Você ainda tem ${tentativas} tentativa(s)`
+
+            console.log('teste2')
+
+        } if (tentativas == 0) {
+            div_mensagem.innerHTML = `Usuário BLOQUEADO! Procure seu gerente!`
+            
+            console.log('teste3')
+        }
+    }
+</script>

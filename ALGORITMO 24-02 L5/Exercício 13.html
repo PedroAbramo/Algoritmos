@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+</head>
+
+<body>
+    <p>Informe qual sua escolha de pokemon inicial:</p>
+    <input type="text" name="" id="ipt_pokemon" list="lista_opcoes">
+
+    <datalist id="lista_opcoes">
+        <option value="Bulbasaur"></option>
+        <option value="Charmander"></option>
+        <option value="Squirtle"></option>
+    </datalist>
+
+    <br><br>
+
+    <button onclick="calculo()">Escolher Pokémon</button>
+    <br><br>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function calculo(){
+        var pokemon = ipt_pokemon.value
+
+        if (pokemon == "Bulbasaur"){
+            div_mensagem.innerHTML = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9algHP6rhazKZIWdL0dLw6NNz2xQ8RNvIxg&s" alt="Bulbasaur">`
+        } else if (pokemon == "Charmander"){
+            div_mensagem.innerHTML = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQePiIbl7CLXFa_tPyBZTM6pQN54sw4oOAACQ&s" alt="Charmander">`
+        } else if (pokemon == "Squirtle"){
+            div_mensagem.innerHTML = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7o9txqNIUebeCII7sORTybNQT_pZqCbZGFg&s" alt="Squirtle">`
+        } else {div_mensagem.innerHTML = `Pokémon não reconhecido`}
+    }
+
+
+</script>

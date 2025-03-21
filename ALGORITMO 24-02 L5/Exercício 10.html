@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocidade</title>
+</head>
+
+<body>
+    <p>Informe a velocidade que você estava dirigindo:</p>
+    <input type="number" name="" id="ipt_velocidade">
+
+    <p>Informe qual a velocidade limite da via:</p>
+    <input type="number" name="" id="ipt_vLimite">
+    <br><br>
+    
+    <button onclick="calculo()">Verificar</button>
+    <br><br>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function calculo(){
+        var velocidade = Number(ipt_velocidade.value)
+        var vLimite = Number(ipt_vLimite.value)
+        var porcentagem = velocidade / vLimite // calculo da porcentagem da velocidade acima do limite
+
+        if(velocidade == vLimite || velocidade < vLimite){
+            div_mensagem.innerHTML = `Velocidade dentro do limite. Boa direção!`
+        } else if (porcentagem <= 1.2){
+            div_mensagem.innerHTML = `Atenção! Excedendo o limite permitido.`
+        } else {
+            div_mensagem.innerHTML = `Multa grave! Velocidade muito acima do permitido.`
+        }
+        console.log('teste1')
+    }
+</script>

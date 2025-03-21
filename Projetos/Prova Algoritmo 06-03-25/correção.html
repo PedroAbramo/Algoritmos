@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correção</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Energia</h2>
+    <p>Qunatidade de energia em Kwh</p>
+    <input type="number" id="ipt_energia_kwh">
+
+    <p>Bandeira tarifária</p>
+    <input type="text" name="" id="ipt_bandeira">
+
+    <h2>Internet</h2>
+    <p>Consumo de internet em MB</p>
+    <input type="number" name="" id="ipt_internet_mb">
+
+    <p>Possui linha telefônica vinculada (Sim/não)</p>
+    <input type="text" name="" id="ipt_linha_vinculada">
+        <br><br>
+
+    <button onclick="calcularDespesas()">Calcular Despesasa Fixas</button>
+        <br><br>
+
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+    function calcularDespesas(){
+        
+        var energia = Number(ipt_energia_kwh.value);
+        var bandeira = ipt_bandeira.value;
+        
+        var valorTotal;
+
+        if(bandeira == 'verde'){
+            valorTotal = energia * 0.75;
+        } else if (bandeira == 'amarela'){
+            valorTotal = energia * 0.9;
+        } else if (bandeira == 'vermelha'){
+            valorTotal = energia * 1;
+        
+        }
+
+        if (energia <= 50){
+            valorTotal = valorTotal * 0.9;
+        }
+        
+        var internetMb = Number(ipt_internet_mb.value);
+        var linhaVinculada = ipt_linha_vinculada.value;
+
+        var valorTotalInternet = internetMb * 0.8;
+
+        if (linhaVinculada == 'sim'){
+            valorTotalInternet = valorTotalInternet * 1.35;
+        } else if (linhaVinculada == 'não'){
+            valorTotalInternet *= 0.925 // *= singifica que estou pegando a variavel 'valorTotalInternet' multiplicando pelo valor 0.925 e guardando o valor na própria variável
+        }
+
+        var total = valorTotal + valorTotalInternet
+
+        div_mensagem.innerHTML = `Com o consumo de ${energia} kWh na bandeira ${bandeira}, a conta de energia totaliza R$${valorTotal}. 
+        Com o consumo de ${internetMb} MB de internet, o valor do plano de internet/telefone totaliza R$${valorTotalInternet}. 
+        Gasto total de despesas mensal: R$${total}`
+
+    }
+</script>

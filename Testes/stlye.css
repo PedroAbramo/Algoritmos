@@ -1,0 +1,12 @@
+.parágrafo{
+    background-color: blueviolet;
+}
+
+#exceção{
+    background-color: aqua;
+}
+
+
+body {
+    background-image:linear-gradient(to left, #ffffff, #000000);
+}

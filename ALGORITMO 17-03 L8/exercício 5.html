@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Informe a temperatura:</p>
+    <input type="number" name="" id="ipt_temp">
+
+    <p>Informe a umidade:</p>
+    <input type="number" name="" id="ipt_umidade">
+        <br><br>
+
+    <button onclick="calculo()">Avaliar clima</button>
+        <br><br>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function calculo() {
+        var umidade = Number(ipt_umidade.value)
+        var temp = Number(ipt_temp.value)
+
+        if (umidade < 0 || umidade > 100) {
+            alert('Valor de umidade inválido')
+            div_mensagem.innerHTML = ``
+        } else {
+            if (temp >= 22 && temp <= 23 && umidade < 60) {
+                div_mensagem.innerHTML = `Clima agradável`
+            } else {
+                div_mensagem.innerHTML = `Clima desconfortável`
+            }
+        }
+    }
+</script> 

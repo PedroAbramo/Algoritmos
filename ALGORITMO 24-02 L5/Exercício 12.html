@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoção</title>
+</head>
+
+<body>
+    <p>Informe como você está se sentindo hoje:</p>
+    <input type="text" name="" id="ipt_emocao" list="lista_opcoes">
+    <br><br>
+
+    <button onclick="calculo()">Mostrar Humor</button>
+    <br><br>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<datalist id="lista_opcoes">
+    <option value="Feliz"></option>
+    <option value="Triste"></option>
+    <option value="Bravo"></option>
+    <option value="Surpreso"></option>
+    <option value="Cansado"></option>
+</datalist>
+
+<script>
+    function calculo(){
+        var emocao = ipt_emocao.value
+
+        if(emocao == 'Feliz'){
+            div_mensagem.innerHTML = `😊`
+        } else if(emocao == 'Triste'){
+            div_mensagem.innerHTML = `😢`
+        } else if(emocao == 'Bravo'){
+            div_mensagem.innerHTML = `😡`
+        } else if(emocao == 'Surpreso'){
+            div_mensagem.innerHTML = `😲`
+        } else if(emocao == 'Cansado'){
+            div_mensagem.innerHTML = `😴`
+        } 
+    }
+</script>

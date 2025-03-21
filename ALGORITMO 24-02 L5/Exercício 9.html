@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC</title>
+</head>
+
+<body>
+    <p>Informe seu peso</p>
+    <input type="number" id="ipt_peso">
+
+    <p>Informe sua altura</p>
+    <input type="number" name="" id="ipt_altura">
+    <br><br>
+
+    <button onclick="calculo()">Calcular IMC</button>
+    <br><br>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    // O IMC deve ser calculado com base no peso dividido pela altura ao quadrado.
+    function calculo(){
+        var peso = Number(ipt_peso.value)
+        var altura = Number(ipt_altura.value)
+        var altura2 = altura * altura
+        var IMC = peso / altura2
+
+        if (IMC < 18.5){
+            div_mensagem.innerHTML = `Seu IMC é ${IMC.toFixed(2)} e você está <b>abaixo do peso</b>`
+        } else if (IMC <= 24.9){
+            div_mensagem.innerHTML = `Seu IMC é ${IMC.toFixed(2)} e você está com <b>peso normal</b>`
+        } else if (IMC < 29.9){
+            div_mensagem.innerHTML = `Seu IMC é ${IMC.toFixed(2)} e você está <b>acima do peso</b>`
+        } else {div_mensagem.innerHTML = `IMC inválido ${IMC}`}
+    }
+
+</script>

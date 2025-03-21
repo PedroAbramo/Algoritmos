@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Altura máxima para o piloto</p>   
+    <input type="number" name="" id="ipt_altMAX">
+
+    <p>Altura mínima para o piloto</p>
+    <input type="number" name="" id="ipt_altMIN">
+
+    <p>Informe o nome do candidado</p>
+    <input type="text" name="" id="ipt_nome">
+
+    <p>Informe a altura do candidato</p>
+    <input type="number" name="" id="ipt_altura">
+        <br><br>
+
+    <button onclick="calculo()">Verificar Candito</button>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+<script>
+    function calculo(){
+        var altMax = Number(ipt_altMAX.value)
+        var altMin = Number(ipt_altMIN.value)
+
+        var nome = ipt_nome.value
+        var altura = Number(ipt_altura.value)
+
+        if(altura <= altMax && altura >= altMin){
+            div_mensagem.innerHTML = `O candidato ${nome}, com altura de ${altura} metros, participará do processo de seleção de piloto`
+        } if (altura >= altMax && altura <= altMin){
+                div_mensagem.innerHTML = `Infelizmente, o candidato ${nome}, com altura de ${altura} metros, não atende os requisitos da seleção`
+            }
+        else {
+            alert('Intervalo da altura de seleção é inválida! A altura inicial deve ser maior que 1 e a altura final deve ser maior que a altura inicial')
+        }
+    }
+</script>

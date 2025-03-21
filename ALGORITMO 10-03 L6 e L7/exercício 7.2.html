@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Calculadora de cansaço aprimorada do aluno SPTech</h2>
+
+    <p>Meio de transporte</p>
+    <input type="text" name="" id="ipt_transporte">
+
+    <p>Distância entre a faculdade de sua casa (KM)</p>
+    <input type="number" name="" id="ipt_dst">
+
+    <button onclick="calculo()">Calcular cansaço</button>
+</body>
+
+</html>
+<script>
+    function calculo(){
+        var dst = Number(ipt_dst.value)
+        var meio = ipt_transporte.value
+
+        if (dst <= 10){
+        if (meio == 'Carro' || meio == 'Metrô' || meio == 'Ônibus' || meio == 'Uber' || meio == 'Bicicleta'){ if(meio != 'Bicicleta'){
+            alert('Tá tranks...')}
+            if (meio == 'Bicicleta'){
+                alert('É... um pouco cansado...')
+                } 
+            }
+        } if (dst > 10){
+        if (meio == 'Carro' || meio == 'Metrô' || meio == 'Ônibus' || meio == 'Uber' || meio == 'Bicicleta'){
+            if (meio == 'Carro' || meio == 'Uber'){
+                alert('Um pouco cansado...')
+            } else if (meio == 'Metrô' || meio == 'Ônibus'){
+                alert('Bem cansado...')
+            } else if (meio == 'Bicicleta'){
+                alert('Vish... tá só o pó')
+            }
+        }
+    }
+    }
+</script>

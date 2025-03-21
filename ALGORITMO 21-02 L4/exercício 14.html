@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Informe seu nome:</p>
+    <input type="text" name="" id="ipt_nome">
+
+    <p>Informe sua idade:</p>
+    <input type="number" name="" id="ipt_idade">
+    <br><br>
+
+    <button onclick="calculo()">Avaliar aluno</button>
+    <br><br>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function calculo(){
+        var idade = Number(ipt_idade.value)
+        var nome = ipt_nome.value
+
+        if (idade >= 18){
+            div_mensagem.innerHTML = `${nome}, vamos tirar a CNH?`
+        } else {
+            div_mensagem.innerHTML = `${nome}, vai jogar playstation!`
+        }
+    }
+</script>

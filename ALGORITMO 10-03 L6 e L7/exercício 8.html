@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>LOGIN</p>
+    <input type="text" name="" id="ipt_login">
+
+    <p>SENHA</p>
+    <input type="password" name="" id="ipt_senha">
+
+    <p>CÓDIGO</p>
+    <input type="text" name="" id="ipt_codigo">
+        <br><br>
+    
+    <button onclick="calculo()">Entrar</button>
+
+
+</body>
+</html>
+
+<script>
+    function calculo(){
+        var login = ipt_login.value
+        var senha = ipt_senha.value
+        var codigo = ipt_codigo.value
+
+        if(login == 'SPTech' && senha == 'digital' && codigo == '123'){
+            alert('Usuário autenticado com sucesso')
+        } else {
+            alert('Falha na autenticação')
+        }
+    }
+</script>

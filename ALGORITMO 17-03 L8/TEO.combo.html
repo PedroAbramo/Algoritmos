@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="selecionar()">Selecionar</button>
+
+    <select id="ipt_bandeira">
+        <option value="Verde">Verde</option>
+        <option value="Amarela">Amarela</option>
+        <option value="Vermelha">Vermelha</option>
+    </select>
+
+</body>
+
+</html>
+<script>
+    function selecionar() {
+        var bandeira = ipt_bandeira.value
+
+        alert('Bandeira selecionada: ' + bandeira)
+
+    }
+</script> 

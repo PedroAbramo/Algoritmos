@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Informe a quantidade de passagens p/ comprar</p>
+    <input type="number" name="" id="ipt_pss">
+        <br><br>
+    
+    <button onclick="calculo()">Comprar</button>
+        <br><br>
+    
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function calculo(){
+        var passagem = Number(ipt_pss.value)
+        var valorP = 4.40
+
+        if (passagem >= 8 && passagem <= 50){
+            if(passagem >= 8 && passagem <= 19){
+            valorP = (valorP * 0.97) * passagem
+            } else if (passagem >= 20 && passagem <= 49){
+            valorP = (valorP * 0.95) * passagem
+            } else if (passagem = 50){
+            valorP = (valorP * 0.93) * passagem
+            }
+
+            div_mensagem.innerHTML = `Valor total a pagar é R$${valorP.toFixed(2)}`
+
+        } else {
+            alert('Quantidade inválida para o Fidelidade')
+        }
+    }
+</script>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Passagem:</p>
+    <select id="ipt_tipo">
+        <option value="Comum">Comum</option>
+        <option value="Estudante">Estudante</option>
+        <option value="Idoso/PNE">Idoso/PNE</option>
+    </select>
+
+    <p>Tipo de passagem:</p>
+    <select id="ipt_passagem">
+        <option value="Passagem Unica">Passagem única</option>
+        <option value="Passagem integração">Passagem integração</option>
+    </select>
+        <br><br>
+
+    <button onclick="calculo()">Simular Preço</button>
+        <br><br>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    
+
+    function calculo() {
+
+        var tipo = ipt_tipo.value
+        var passagem = ipt_passagem.value
+
+        var valorPassagem
+
+        // exemplo usando operador ternario
+
+        // variável | se for igual unica preço = 4.4 se não 5.90
+        // var preco = tipoPassagem == 'unica' ? 4.40 : 5.90;
+
+        if (passagem == 'Passagem Unica') {
+        valorPassagem = 4.40
+
+    } if (passagem == 'Passagem integração') {
+        valorPassagem = 5.90
+
+    }
+
+        if (tipo == 'Estudante') {
+            valorPassagem = (valorPassagem / 2)
+        } else if (tipo == 'Comum') {
+            valorPassagem = valorPassagem
+        } else if (tipo == 'Idoso/PNE') {
+            valorPassagem = 0.00
+        }
+
+    div_mensagem.innerHTML = `O valor da passagem escolhida é R$${valorPassagem}`
+        
+    }
+</script>

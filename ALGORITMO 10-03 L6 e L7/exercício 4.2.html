@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Informe o modo de pagamento</p>
+    <input type="text" name="" id="ipt_pagamento">
+        <br><br>
+
+    <button onclick="calculo()">Analisar compra</button>
+</body>
+
+</html>
+
+<script>
+    function calculo(){
+        var pagamento = ipt_pagamento.value
+
+        if (pagamento == 'débito' || pagamento == 'dinheiro'){
+            alert('Você terá que pagar a vista')
+        } else if (pagamento == 'boleto' || pagamento == 'crédito'){
+            alert('Pagamento poderá ser parcelado')
+        } else {
+            alert('Método de pagamento inválido')
+        }
+    }
+</script>

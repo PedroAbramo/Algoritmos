@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Informe a nota 1:</p>
+    <input type="number" name="" id="ipt_n1">
+
+    <p>Informe a nota 2:</p>
+    <input type="number" name="" id="ipt_n2">
+    <br><br>
+
+    <button onclick="calculo()">Verificar situação</button>
+    <br><br>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+    function calculo(){
+        var n1 = Number(ipt_n1.value)
+        var n2 = Number(ipt_n2.value)
+        var média = (n1 + n2) / 2
+        
+        if (média >= 6 ){
+            div_mensagem.innerHTML = `Média maior ou igual a 6! Parabéns aprovado!!`
+        } else {div_mensagem.innerHTML = `Nota inferior a 6! Tente outra vez!`}
+    }
+
+
+</script>

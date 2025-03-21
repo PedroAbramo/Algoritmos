@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador Ternário</title>
+</head>
+
+<body>
+    <input type="number" name="" id="ipt_idade">   
+    <button onclick="exibirMensagem()">Ver mensagem</button>
+</body>
+</html>
+
+<script>
+    function exibirMensagem(){
+        var idade = Number(ipt_idade.value)
+
+        //   VARIÁVEL        SE                     SE NÃO
+        var mensagem = idade >= 18 ? "Já pode dirigir" : "Ainda não pode dirigir"
+        alert(mensagem)
+
+        if (idade >= 18){
+            alert('Já pode dirigir')
+        } else {
+            alert('Ainda nao pode dirigir')
+        }
+    }
+</script>

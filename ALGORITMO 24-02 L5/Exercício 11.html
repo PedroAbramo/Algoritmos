@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umidade</title>
+</head>
+
+<body>
+    <p>Informe o valor em porcentagem da umidade do ambiente:</p>
+    <input type="number" name="" id="ipt_umidade" placeholder="Entre 0 e 100%">
+    <br><br>
+
+    <button onclick="calculo()">Verificar umidade</button>
+    <br><br>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+<script>
+    function calculo(){
+        var umidade = Number(ipt_umidade.value)
+
+        if (umidade > 100 || umidade < 0){
+            alert(`${umidade} não é um valor válido`)
+        } else if (umidade < 12){
+            div_mensagem.innerHTML = `Estado de Emergencia`
+        } else if (umidade < 20){
+            div_mensagem.innerHTML = `Estado de alerta`
+        } else if (umidade < 30){
+            div_mensagem.innerHTML = `Estado de atenção`
+        } else {
+            div_mensagem.innerHTML = `Nenhum risco`
+        }
+    }
+</script>
+
+<!-- 
+"Estado de Emergencia" (abaixo de 12%)
+"Estado de alerta" (entre 12% e 20%)
+"Estado de atenção" (entre 20% e 30%)
+"Nenhum risco" (acima de 30%) -->

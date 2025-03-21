@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+    <div id="center">
+<center>
+    <p>Informe a quantidade de produtos comprados:</p>
+    <input type="number" name="" id="ipt_qtd_produtos">
+
+    <p>Informe o valor total da compra</p>
+    <input type="number" name="" id="ipt_valor_total">
+
+    <p><b>Cliente VIP</b></p>
+    <input type="checkbox" id="check_vip"> 
+    <!-- Se estiver marcado o resultado é = "True" se não, o resultado é "False" -->
+        <br><br>
+
+    <button onclick="calculo()">Calcular</button>
+        <br><br>
+    <div id="div_mensagem"></div>
+</center>
+</body>
+    </div>
+
+</html>
+<script>
+    function calculo() {
+        var qtdProduto = Number(ipt_qtd_produtos.value)
+        var valorTotal = Number(ipt_valor_total.value)
+        var vip = check_vip.checked // True ou false e não precisa de aspas na hora de fazer o if
+        var desconto = 0
+        var recompensa = 0
+
+        if (qtdProduto > 10 && valorTotal > 1000 && vip == true) {
+            desconto += 15
+        } if ((qtdProduto > 10 && valorTotal > 500) || vip == true) {
+            desconto += 10
+        } if ((qtdProduto >= 6 && qtdProduto <= 10 && valorTotal > 200) || vip == true ) {
+            desconto += 5
+        } if (qtdProduto <= 5) {
+            desconto = 0
+        }
+
+        if ((qtdProduto > 5 && valorTotal > 200) || vip == true) {
+            recompensa += 50
+        } if (qtdProduto > 10 && valorTotal > 500) {
+            recompensa += 100
+        } if (qtdProduto <= 5) {
+            recompensa = 0
+        }
+
+        div_mensagem.innerHTML = `Desconto: ${desconto}% 
+                             <br> Recompensa: ${recompensa} pontos`
+    }
+</script>

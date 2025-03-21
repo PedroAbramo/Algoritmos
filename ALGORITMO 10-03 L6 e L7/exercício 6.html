@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Informe uma nota</p>
+    <input type="number" name="" id="ipt_n1">
+
+    <p>Informe sua frequência</p>
+    <input type="number" name="" id="ipt_frq">
+        <br><br>
+
+    <button onclick="calculo()">Avaliar aluno</button>
+</body>
+
+</html>
+
+<script>
+    function calculo(){
+        var nota = Number(ipt_n1.value)
+        var frq = Number(ipt_frq.value)
+
+        if (nota >= 6 && frq >= 75){
+            alert('Parabéns! Aprovado')
+        } else {
+            alert('Infelizmente, não foi desta vez!')
+        }
+    }
+</script>
