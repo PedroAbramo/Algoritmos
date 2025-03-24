@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="icon.jpg"> 
+    <!-- Colocando ícone na página -->
+
+</head>
+
+<body>
+<center>
+    <h1>SPTecher's Machine</h1>
+
+    <h3>Digite um número decimal:</h3>
+        <br>
+
+    <input id="demo1" type="text" placeholder="Ex: 90" />
+        <br><br>
+
+    <button onclick="converter()">Converter</button>
+
+    <h3>Resultados:</h3>
+    
+    <p>Octal:</p>
+    <div id="demo2"></div>
+    <p></p>
+    <p>Binário:</p>
+    <div id="demo4"></div>
+    <p></p>
+    <p>Hexadecimal:</p>
+    <div id="demo3"></div>
+    <p></p>
+
+    <!-- Quadrado com a cor de acordo com o hexadecimal -->
+    <div id="quadrado"></div> 
+
+    
+</center>
+</body>
+
+</html>
+
+<script>
+    function converter() {
+        var num = Number(demo1.value)
+
+        demo2.innerHTML = num.toString(8)
+        demo4.innerHTML = num.toString(2)
+        demo3.innerHTML = num.toString(16)
+
+        var hexa = demo3.innerHTML
+
+        quadrado.style.backgroundColor = "#" + hexa;
+
+        if (num > 16777215) {
+            quadrado.innerHTML = `Cor ${hexa} não existe`
+        }
+    }
+</script>

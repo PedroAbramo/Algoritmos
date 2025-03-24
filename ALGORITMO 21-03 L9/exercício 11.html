@@ -45,13 +45,11 @@
             div_exibir.innerHTML = ""
             while (contador < num) {
             // ternário | se o resultado da divisão por 2 for "true" ele fornecerá o red, se for false, fornecerá blue
-            var cor = (contador % 2 === 0) ? "red" : "blue" 
+            // impar = vermelho | par = azul
+            var cor = (contador % 2 == 0) ? "red" : "blue" 
+
             div_exibir.innerHTML += `<span style = "color: ${cor}">${tabuada} x ${++contador} = ${tabuada * contador}</span><br>`
             
-            div_exibir.innerHTML += `<span style = "color: ${cor}">`
-        
         }
     }
-
-    // <span style = "background-color: white; color: black">
 </script>

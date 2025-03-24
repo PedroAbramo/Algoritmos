@@ -1,0 +1,80 @@
+
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Centralizando tudo */
+body {
+  background-color: #ffffff;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Título */
+h1 {
+  color: #333;
+}
+
+/* Subtítulos */
+h3 {
+  color: #555;
+}
+
+/* Input */
+input {
+  padding: 8px;
+  font-size: 16px;
+  border: 2px solid #aaa;
+  border-radius: 50px;
+  width: 250px;
+  text-align: center;
+}
+
+/* Botão */
+button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.3s; /* */
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+/* Resultados */
+p {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Divs de resultados */
+#demo2, 
+#demo3, 
+#demo4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #555;
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+/* Quadrado que muda de cor */
+#quadrado {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  border: 2px solid #333;
+  border-radius: 10px;
+}
+
+  
