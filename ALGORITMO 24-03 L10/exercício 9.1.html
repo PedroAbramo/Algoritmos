@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>N1:</p>
+    <input type="number" name="" id="ipt_n1">
+
+    <p>N2:</p>
+    <input type="number" id="ipt_n2">
+        <br><br>
+
+    <button onclick="calculo()">S2 Pares...</button>
+        <br><br>
+    <div id="div_exibir"></div>
+</body>
+
+</html>
+
+<script>
+    function calculo() {
+        var n1 = Number(ipt_n1.value)
+        var n2 = Number(ipt_n2.value)
+
+        contador = n1
+
+        while (contador <= n2) {
+            if (contador % 2 == 0) {
+            div_exibir.innerHTML += `${contador}<br>`
+        }
+        contador++
+        }
+    }
+</script>
