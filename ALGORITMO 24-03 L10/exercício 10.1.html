@@ -24,9 +24,17 @@
     function calculo() {
         var voltas = Number(ipt_voltas.value)
         
-        contador = 0
+       /* contador = 0
 
         while (contador < voltas) {
+            div_exibir.innerHTML += `Carro dando a <b>${++contador}ª</b> volta <br>`
+        }
+
+        if(voltas = contador) {
+            div_exibir.innerHTML += `<br> <b>Corrida finalizada!</b>`
+        }*/
+
+        for(contador = 0; contador < voltas; contador) {
             div_exibir.innerHTML += `Carro dando a <b>${++contador}ª</b> volta <br>`
         }
 

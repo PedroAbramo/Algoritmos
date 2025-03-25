@@ -40,7 +40,7 @@
         var tabuada = Number(ipt_tabuada.value)
         var num = Number(ipt_n.value)
         
-        contador = 0
+        /*contador = 0
         
             div_exibir.innerHTML = ""
             while (contador <= num) {
@@ -49,7 +49,11 @@
             var cor = (contador % 2 == 0) ? "red" : "blue" 
 
             div_exibir.innerHTML += `<span style = "color: ${cor}">${tabuada} x ${++contador} = ${tabuada * contador}</span><br>`
-    
+        }*/
+        div_exibir.innerHTML = ""
+        for(contador = 0; contador < num; contador) {
+            var cor = (contador % 2 == 0) ? "red" : "blue"
+            div_exibir.innerHTML += `<span style = "color: ${cor}">${tabuada} x ${++    contador} = ${tabuada * contador}</span><br>`
         }
     }
 </script>

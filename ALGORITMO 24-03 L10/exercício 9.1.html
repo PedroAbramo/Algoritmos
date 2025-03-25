@@ -27,13 +27,19 @@
         var n1 = Number(ipt_n1.value)
         var n2 = Number(ipt_n2.value)
 
-        contador = n1
+        /*contador = n1
 
         while (contador <= n2) {
             if (contador % 2 == 0) {
             div_exibir.innerHTML += `${contador}<br>`
         }
         contador++
+        }*/
+
+        for(contador = n1; contador <= n2; contador++) {
+            if (contador % 2 == 0) {
+            div_exibir.innerHTML += `${contador}<br>`
+            }
         }
     }
 </script>
