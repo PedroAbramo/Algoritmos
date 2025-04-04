@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<center>
+    <p>Informe quantos depósitos você fez no banco</p>
+    <input type="number" name="" id="ipt_depositos">
+
+    <p>Informe o valor de cada depósito</p>
+    <input type="number" name="" id="ipt_valor">
+        <br><br>
+
+    <button onclick="calculo()">Acompanhar grana</button>
+        <br><br>
+    <div id="div_exibir"></div>
+</center>
+</body>
+
+</html>
+
+<script>
+    function calculo() {
+        var depositos = Number(ipt_depositos.value)
+        var valor = Number(ipt_valor.value)
+
+        var saldo = 0;
+
+
+        for (var i = 1; i <= depositos; i++) {
+            saldo += valor;
+            div_exibir.innerHTML += `<br>${i}º Mês: R$${saldo}`
+        if (i == depositos) {
+            div_exibir.innerHTML += `<br>Total guardado: R$${saldo}`}
+        }
+    }
+</script>

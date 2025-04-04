@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantidade de Café com Leite</title>
+</head>
+
+<body>
+    <center>
+    <p>Quantas xícaras de café com leite você já tomou na vida?</p>
+    <input type="number" id="ipt_xicaras">
+        <br><br>
+
+    <button onclick="calcular()">Ver a quantidade</button>
+        <br><br>
+    <div id="div_resultado"></div>
+
+    <script>
+        function calcular() {
+            var xicaras = Number(ipt_xicaras.value)
+            var colheresLeite = xicaras * 1
+            var colheresCafe = xicaras * 2
+
+            div_resultado.innerHTML = `Você já usou ${colheresLeite} colheres de leite em pó e ${colheresCafe} colheres de café em pó.`
+        }
+    </script>
+    </center>
+</body>
+
+</html>

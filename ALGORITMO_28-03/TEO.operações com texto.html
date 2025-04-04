@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<center>
+<body>
+    <div id="titulo">
+        <h2>Operações com texto </h2>
+    </div>
+
+    <input type="text" id="ipt_texto">
+        <br><br>
+    <button onclick="validar()"; id="botao">Validar</button>
+        <br><br>
+    <div id="div_mensagem" ></div>
+</body>
+</center>
+</html>
+<style>
+    #div_mensagem {
+    text-align: center;
+    color: white;
+    }
+
+    #titulo {
+        color: rgb(255, 255, 255);
+        
+    }
+
+    #botao {
+        border-radius: 100px;
+        cursor: pointer;
+        background-color: rgba(255, 0, 0, 0.73);
+        color: white;
+    }
+
+    #ipt_texto {
+        border-radius: 50px;
+    }
+
+    body {
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(135,37,37,1) 49%, rgba(255,255,255,1) 86%);
+    }
+</style>
+
+
+
+<!-- ".length mostra a quantidade de caracteres que o texto possui em valor númerico" -->
+<!-- endsWith("...") -->
+<!-- startsWith("...") -->
+<!-- indexOf("...") -->
+
+<script>
+    
+    function validar () {
+        var textoOriginal = ipt_texto.value;
+
+        div_mensagem.innerHTML = `Texto original: ${textoOriginal}`
+
+        var tamanhoTexto = textoOriginal.length
+        div_mensagem.innerHTML += `<br>Tamanho do texto = ${tamanhoTexto}`
+
+        if (tamanhoTexto >= 8) {
+            div_mensagem.innerHTML += `<br>O texto possui 8 ou mais caracteres`
+        } else {
+            div_mensagem.innerHTML += `<br>O texto não possui 8 caracteres`
+        }
+    
+        var terminaCom = textoOriginal.endsWith(".com")
+        div_mensagem.innerHTML += `<br>Termina com .com? <b>${terminaCom}<b>`
+
+        var comecaComAbc = textoOriginal.startsWith("abc")
+        div_mensagem.innerHTML += `<br>Começa com abc? <b>${comecaComAbc}<b>`
+
+        var primeiraLetra = textoOriginal[0];
+        var terceiraLetra = textoOriginal[2];
+        var ultimaLetra = textoOriginal[textoOriginal.length - 1]
+
+        div_mensagem.innerHTML += `<br> Primeira letra: ${primeiraLetra}`
+        div_mensagem.innerHTML += `<br> Terceira letra: ${terceiraLetra}`
+        div_mensagem.innerHTML += `<br> Ultima letra: ${ultimaLetra}` 
+        
+        var indiceArroba = textoOriginal.indexOf("@")
+        var contemArroba = indiceArroba >= 0 ? true : false
+        var arrobaAntesCom = indiceArroba < terminaCom
+//      vai procurar se contém @ no texto e se tiver, retorna o valor que representa a posição onde o @ se encontra, se ele retornar um número abaixo de 0 ele não encontrou o que estava procurando.
+
+        div_mensagem.innerHTML += `<br> Indice do @: ${indiceArroba}`
+        div_mensagem.innerHTML += `<br> Contem @: <b>${contemArroba}</b>`
+        div_mensagem.innerHTML += `<br> Arroba antes do .com: ${arrobaAntesCom}`
+        
+        var letrasMinusculas = textoOriginal.toLowerCase()
+        div_mensagem.innerHTML += `<br> Letras minusculas: ${letrasMinusculas}`
+        var letrasMaiusculas = textoOriginal.toUpperCase()
+        div_mensagem.innerHTML += `<br> Letras maiusculas: ${letrasMaiusculas}`
+
+        var subtexto = textoOriginal.substring(2, 4)
+        div_mensagem.innerHTML += `<br>Subtexto: ${subtexto}`
+        var primeiraLetraMaiuscula = textoOriginal[0].toUpperCase()
+        div_mensagem.innerHTML += `<br>Primeira letra maiuscula: ${primeiraLetraMaiuscula}`
+
+        var textoSemEspaco = textoOriginal.replaceAll(" ", "")
+//      replace você informa o que ele vai substituir, no caso o " " espaço em branco, e logo em seguida, pelo o que ele ira substituir, no caso "" aspas sem nada que vai tirar os espaços 
+        div_mensagem.innerHTML += `<br>Texto sem espaço: ${textoSemEspaco}`
+
+    }
+</script>

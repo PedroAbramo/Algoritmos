@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<p>Informe quantas pessoas</p>
+<input type="number" id="ipt_passageiros">
+<button onclick="calculo()">#Partiu carona</button>
+    <br><br>
+<div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+    function calculo() {
+        var p = Number(ipt_passageiros.value)
+
+        for(i = 0; i <= p; i++) {
+            if (i == 1) {
+                div_mensagem.innerHTML = `Entrou o 1º passageiro (que é o(a) motorista)`
+            }
+            else if (i >= 6) {
+                div_mensagem.innerHTML += `<br>O ${i}º passageiro terá que esperar!`
+            } 
+            else {
+                div_mensagem.innerHTML += `<br>Entrou o ${i}º passageiro`
+            }
+        }
+    }
+    
+</script>

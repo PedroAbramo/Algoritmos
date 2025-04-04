@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=p, initial-scale=1.0">
+    <title>Coca-Cola</title>
+</head>
+
+<body>
+    <p>Quantas coca-cola você acha que já bebeu na vida?</p>
+    <input type="number" name="" id="ipt_coca">
+        <br><br>
+    
+    <button onclick="calculo()">Ver quantidade</button>
+        <br><br>
+    <div id="div_mensagem"></div>
+
+</body>
+
+<style>
+        img{
+        width: 100px;
+        height: 100px;
+    }
+
+</style>
+
+</html>
+
+<script>
+    function calculo() {
+        var coca = Number(ipt_coca.value)
+        div_mensagem.innerHTML = ``
+
+        for(i = 1; i <= coca; i++) {
+            div_mensagem.innerHTML += `<img src="https://andinacocacola.vtexassets.com/arquivos/ids/157652/110255_COCA---CCO220ml.jpg?v=638404083624500000" alt="coca">`
+
+        }
+    }
+</script> 

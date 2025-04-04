@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tocar música</title>
+</head>
+
+<body>
+    <p>Informe a quantidade de musicas que deseja ouvir:</p>
+    <input type="number" id="ipt_musicas">
+    <br><br>
+
+    <button onclick="musica()">Começar o Show</button>
+    <br><br>
+    <div id="div_exibir"></div>
+
+    <script>
+        function musica() {
+            var n_musicas = Number(ipt_musicas.value)
+            var aprovadas = 0
+            var reprovadas = 0
+            div_exibir.innerHTML = ""
+            var musica
+
+            for (i = 1; i <= n_musicas; i++) {
+                var nome_musica = prompt("Informe o nome da música ")
+                while (musica == nome_musica) {
+                    nome_musica = prompt("Música já tocou, informe novamente:")
+                }
+                var gosta_musica = prompt("Informe se você gosta da música (Sim/Não)")
+                
+                div_exibir.innerHTML += `<br>Tocando ${i}ª música: ${nome_musica}`
+                
+                if (gosta_musica.toLowerCase() == "sim") {
+                    div_exibir.innerHTML += ` (Gostou)`
+                    aprovadas++
+                } else {
+                    div_exibir.innerHTML += ` (Não Gostou)`
+                    reprovadas++
+                }
+                musica = nome_musica
+
+            }
+
+            div_exibir.innerHTML += `<br><br> Quantidade de músicas tocadas: ${n_musicas}
+                                     <br>     Quantas músicas foram aprovadas (Gostou): ${aprovadas}
+                                     <br>     Quantas músicas foram reprovadas (Não gostou): ${reprovadas}`
+        }
+    </script>
+</body>
+
+</html>
