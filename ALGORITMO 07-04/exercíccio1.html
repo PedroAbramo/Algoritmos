@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<center>
+    <button onclick="calcular()">Sortear</button>
+    <div id="exibir"></div>
+</center>
+</body>
+
+</html>
+
+<script>
+    function calcular(){
+        var nSorteado = Math.random()
+
+        exibir.innerHTML = `O número sorteado é: ${nSorteado.toFixed(4)}`
+
+        if (nSorteado > 0.5) {
+            exibir.innerHTML += `<br> Eu arrendondaria pra 1`
+        } else {
+            exibir.innerHTML += `<br> Eu arrendondaria pra 0`
+        }
+
+    }
+</script>

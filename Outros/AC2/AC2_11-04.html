@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doceria</title>
+    <link rel="stylesheet" href="styleDoces.css">
+</head>
+
+<body>
+
+</body>
+    <h3>Quantidade de cada doce</h3>
+
+    <p>Informe a quantidade de Macarons a serem vendidos</p>
+    <input type="number" id="ipt_nMacarons">
+
+    <p>Informe a quantidade de Brigadeiros Gourmets a serem vendidos</p>
+    <input type="number" id="ipt_nBrigadeiros">
+
+    <p>Informe a quantidade de Cupcakes a serem vendidos</p>
+    <input type="number" id="ipt_nCupcakes">
+
+    <p>Informe a quantidade de Cheesecakes a serem vendidos</p>
+    <input type="number" id="ipt_nCheesecakes">
+        <br><br>
+
+    <h3>Preço dos doces</h3>
+    <p>Informe o valor de cada Macaron</p>
+    <input type="number" id="ipt_Vmacaron">
+
+    <p>Informe o valor de cada Brigadeiro Gourmet</p>
+    <input type="number" id="ipt_Vbrigadeiro">
+
+    <p>Informe o valor de cada Cupcake</p>
+    <input type="number" id="ipt_Vcupcake">
+
+    <p>Informe o valor de cada Cheesecakes</p>
+    <input type="number" id="ipt_Vcheesecakes">
+        <br><br>
+
+    <button onclick="calculo()">Verificar Vendas</button>
+        <br><br>
+    <div id="div_exibir"></div>
+
+    <p>Quantas avaliações deseja simular?</p>
+    <input type="number" name="" id="ipt_clientes">
+        <br>
+
+    <button onclick="simular()">Simular</button>
+        <br>
+    <div id="div_avaliacoes"></div>
+
+
+
+
+</html>
+
+<script>
+    function calculo() {
+        //Quantidade
+        var qtd_macaron = Number(ipt_nMacarons.value)
+        var qtd_brigadeiro = Number(ipt_nBrigadeiros.value)
+        var qtd_cupcake = Number(ipt_nCupcakes.value)
+        var qtd_cheesecakes = Number(ipt_nCheesecakes.value)
+        
+        //Valor
+        var v_macaron = Number(ipt_Vmacaron.value)
+        var v_brigadeiro = Number(ipt_Vbrigadeiro.value)
+        var v_cupcake = Number(ipt_Vcupcake.value)
+        var v_cheesecakes = Number(ipt_Vcheesecakes.value)
+
+
+        while (v_macaron <= 0 || v_brigadeiro <= 0 || v_cupcake <= 0 || v_cheesecakes <= 0) {
+            alert('O valor dos produtos devem ser todos positivos')
+            return// o break serve para o while não ficar infinito e quebrar
+        }
+
+
+
+        // exibindo o extrato
+        var qtdTotal_Doces = v_macaron + v_brigadeiro + v_cupcake + v_cheesecakes
+        console.log(`${qtdTotal_Doces}`)
+
+        div_exibir.innerHTML = `` //Limpar div antes de exibir outra venda
+
+        for (i = 1; i <= qtdTotal_Doces; i++) {
+                       //qtdTotal de imagens que serão exibidas
+            if (qtd_macaron >= 1) {
+            for (m = 1; m <= qtd_macaron; m++) {                      //qtdTotal de imagens de macaron
+                div_exibir.innerHTML += ` <div>${i}<div>  <img src="https://delale.com.br/img-render/produtos/h/macaron_cc4935c9803cf834746ab2f47ac355f4.jpg" alt="Image Macaron">  R$${v_macaron}<br>`
+            i++
+            }}
+
+            if (qtd_brigadeiro >= 1) {
+            for (b = 1; b <= qtd_brigadeiro; b++) {                    //qtdTotal de imagens de brigadeiro
+                div_exibir.innerHTML += `<div>${i}<div> <img src="https://media.istockphoto.com/id/1173585579/pt/foto/brigadier.jpg?s=612x612&w=0&k=20&c=huBBKQPsrmdntZbdmUOKvP_C_VY2RJsfFivRSTJ9kcA=" alt="Image Brigadeiro">  R$${v_brigadeiro}<br>`
+            i++
+            }}
+
+            if (qtd_cupcake >= 1) {
+            for (c = 1; c <= qtd_cupcake; c++) {                        //qtdTotal de imagens de cupcake
+                div_exibir.innerHTML += `<div>${i}<div> <img src="https://t3.ftcdn.net/jpg/06/22/53/86/360_F_622538689_8peXS9fJS2hM5LMtgr7YQWUU8IHskiDP.jpg" alt="Image Cupcake">  R$${v_cupcake}<br>`
+            i++
+            }}
+
+            if (qtd_cheesecakes >= 1) {
+            for (q = 1; q <= qtd_cheesecakes; q++) {                    //qtdTotal de imagens de cheesecakes
+                div_exibir.innerHTML += `<div>${i}<div> <img src="https://cozinhaglobo.com.br/wp-content/uploads/2023/06/receita-de-cheesecake-de-morango.jpg" alt="Image cheesecakes">  R$${v_cheesecakes}<br>`
+            i++
+            }}
+            break
+        }
+
+        // Calculando custo total
+        var custoMacaron = qtd_macaron*v_macaron
+        var custoBrigadeiro = qtd_brigadeiro*v_brigadeiro
+        var custoCupcakes = qtd_cupcake*v_cupcake
+        var custoCheesecakes = qtd_cheesecakes*v_cheesecakes
+
+        var custoTotal = custoMacaron + custoBrigadeiro + custoCupcakes + custoCheesecakes
+    
+        div_exibir.innerHTML = `<span style="font-size: 20px;"> Com a quantidade de ${qtd_macaron} Macarons, ${qtd_brigadeiro} Brigadeiros, ${qtd_cupcake} Cupcakes e ${qtd_cheesecakes} Cheesecakes, a venda totalizará <b>R$${custoTotal}</b>`
+    }
+
+    //Simulando as avaliações
+    function simular() {
+
+        div_avaliacoes.innerHTML = ``// Limpar div
+
+        const nClientes = Number(ipt_clientes.value)
+        
+        for (l = 1; l <= nClientes; l++){
+        var numeroSorteado = Math.random() * 10
+
+        while (numeroSorteado > 5) {
+        var numeroSorteado = Math.random() * 10  
+        }
+
+        var numeroFinal = numeroSorteado.toFixed(0)
+
+        div_avaliacoes.innerHTML += `<span style="font-size: 20px;">Avaliação do ${l}º cliente: ${numeroFinal}<br>`
+
+        //Armazenando e calculando o valor da média
+        for (o = 1; o <= nClientes; o++) {
+            media += numeroFinal
+
+            var mediaFinal = media / n
+            
+            }
+        }
+    }
+</script>
