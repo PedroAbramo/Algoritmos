@@ -10,7 +10,6 @@
 
 <body>
 
-</body>
     <h3>Quantidade de cada doce</h3>
 
     <p>Informe a quantidade de Macarons a serem vendidos</p>
@@ -52,6 +51,8 @@
         <br>
     <div id="div_avaliacoes"></div>
 
+</body>
+
 
 
 
@@ -80,7 +81,7 @@
 
 
         // exibindo o extrato
-        var qtdTotal_Doces = v_macaron + v_brigadeiro + v_cupcake + v_cheesecakes
+        var qtdTotal_Doces = qtd_macaron + qtd_brigadeiro + qtd_cupcake + qtd_cheesecakes
         console.log(`${qtdTotal_Doces}`)
 
         div_exibir.innerHTML = `` //Limpar div antes de exibir outra venda
@@ -89,13 +90,13 @@
                        //qtdTotal de imagens que serão exibidas
             if (qtd_macaron >= 1) {
             for (m = 1; m <= qtd_macaron; m++) {                      //qtdTotal de imagens de macaron
-                div_exibir.innerHTML += ` <div>${i}<div>  <img src="https://delale.com.br/img-render/produtos/h/macaron_cc4935c9803cf834746ab2f47ac355f4.jpg" alt="Image Macaron">  R$${v_macaron}<br>`
+                div_exibir.innerHTML += `<div>${i}<div>  <img src="https://delale.com.br/img-render/produtos/h/macaron_cc4935c9803cf834746ab2f47ac355f4.jpg" alt="Image Macaron">  R$${v_macaron}<br>`
             i++
             }}
 
             if (qtd_brigadeiro >= 1) {
             for (b = 1; b <= qtd_brigadeiro; b++) {                    //qtdTotal de imagens de brigadeiro
-                div_exibir.innerHTML += `<div>${i}<div> <img src="https://media.istockphoto.com/id/1173585579/pt/foto/brigadier.jpg?s=612x612&w=0&k=20&c=huBBKQPsrmdntZbdmUOKvP_C_VY2RJsfFivRSTJ9kcA=" alt="Image Brigadeiro">  R$${v_brigadeiro}<br>`
+                div_exibir.innerHTML += `<div>${i}<div> <img src="https://i.panelinha.com.br/i1/228-q-2859-brigadeiro.webp" alt="Image Brigadeiro">  R$${v_brigadeiro}<br>`
             i++
             }}
 
@@ -121,7 +122,7 @@
 
         var custoTotal = custoMacaron + custoBrigadeiro + custoCupcakes + custoCheesecakes
     
-        div_exibir.innerHTML = `<span style="font-size: 20px;"> Com a quantidade de ${qtd_macaron} Macarons, ${qtd_brigadeiro} Brigadeiros, ${qtd_cupcake} Cupcakes e ${qtd_cheesecakes} Cheesecakes, a venda totalizará <b>R$${custoTotal}</b>`
+        div_exibir.innerHTML += `<br><span style="font-size: 20px;"> Com a quantidade de ${qtd_macaron} Macarons, ${qtd_brigadeiro} Brigadeiros, ${qtd_cupcake} Cupcakes e ${qtd_cheesecakes} Cheesecakes, a venda totalizará <b>R$${custoTotal}</b>`
     }
 
     //Simulando as avaliações
@@ -130,6 +131,8 @@
         div_avaliacoes.innerHTML = ``// Limpar div
 
         const nClientes = Number(ipt_clientes.value)
+
+        let somaAvaliacoes = 0 
         
         for (l = 1; l <= nClientes; l++){
         var numeroSorteado = Math.random() * 10
@@ -140,15 +143,13 @@
 
         var numeroFinal = numeroSorteado.toFixed(0)
 
-        div_avaliacoes.innerHTML += `<span style="font-size: 20px;">Avaliação do ${l}º cliente: ${numeroFinal}<br>`
+        div_avaliacoes.innerHTML += `<br><span style="font-size: 20px;">Avaliação do ${l}º cliente: <b>${numeroFinal}</b>`
 
-        //Armazenando e calculando o valor da média
-        for (o = 1; o <= nClientes; o++) {
-            media += numeroFinal
-
-            var mediaFinal = media / n
-            
-            }
-        }
+        somaAvaliacoes += Number(numeroFinal)
     }
+
+        const mediaAvaliacoes = somaAvaliacoes/nClientes
+
+        div_avaliacoes.innerHTML += `<br><br><span style="font-size: 20px;">Média das avaliações: <b>${mediaAvaliacoes.toFixed(2)}</b>`;
+}
 </script>
