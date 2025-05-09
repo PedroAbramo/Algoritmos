@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Informe os filmes que mais gosta em ordem:</p>
+    <input type="text" name="" id="ipt_filme">
+        <br>
+    <button onclick="calculo()">Cadastrar filme</button>
+        <br><br>
+        <div id="div_exibir"></div>
+</body>
+
+</html>
+
+<script>
+    const filmes = []
+
+    function calculo() {
+        filmes.push(ipt_filme.value)
+
+        div_exibir.innerHTML = ``
+        div_exibir.innerHTML += `Seu filme favorito é: <b>${filmes[0]}</b>`
+
+        if (filmes.length < 3) {
+        div_exibir.innerHTML += `<br>Seu 3º filme favorito: Ainda não existe`
+        } else {
+        div_exibir.innerHTML += `<br>Seu 3º filme favorito: <b>${filmes[2]}</b>`
+        }
+
+        div_exibir.innerHTML += `<br>Total de filmes cadastrados: ${filmes.length}`
+    }
+</script>

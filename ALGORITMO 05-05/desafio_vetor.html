@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<center>
+    <p>Informe o nome do produto:</p>
+    <input type="text" name="" id="ipt_nome" placeholder="Ex: Batata">
+
+    <p>Informe o código do produto:</p>
+    <input type="text" name="" id="ipt_codigo" placeholder="Ex: ABC">
+    
+    <p>Informe a quantidade do produto:</p>
+    <input type="number" name="" id="ipt_qtd" placeholder="Ex: 45">
+    <div id="div_validacao"></div>
+        <br><br>
+    
+    <button onclick="cadastrar()">Cadastrar Produto</button>
+        <br><br>
+    
+    <button onclick="repor()">Repor Estoque</button>
+        <br><br>
+    
+    <button onclick="vender()">Vender Produto</button>
+        <br><br>
+    
+    <button onclick="relatorio()">Exibir Relatório</button>
+        <br><br>
+    
+</center>
+</body>
+
+</html>
+
+<script>
+
+    const produto = []
+    const codigo = []
+    const quantidade = []
+    
+    function cadastrar() {
+    var nomeProduto = ipt_nome.value
+    var codigoProduto = ipt_codigo.value
+    var quantidadeProduto = Number(ipt_qtd.value)
+
+    div_validacao.innerHTML = ``
+
+    if (nomeProduto == "" || codigoProduto == "" || ipt_qtd.value == "") {
+        div_validacao.innerHTML = `<br>Preencha todos os campos`
+        return
+    }
+
+
+    if (quantidadeProduto <= 9) {
+        div_validacao.innerHTML = `<br>A quantidade deve ser maior que 10 para cadastrar`
+        return
+    }
+
+    let existeCodigo = 0
+
+    for (let i = 0; i <= produto.length; i++) {
+        if (codigoProduto == codigo[i]) {
+            existeCodigo++
+        } 
+    }
+
+    if (existeCodigo > 0) {
+        div_validacao.innerHTML += `Código de produto já existe` 
+        return   
+    }
+
+    produto.push(nomeProduto)
+    codigo.push(codigoProduto)
+    quantidade.push(quantidadeProduto)
+
+    console.log(produto)
+    console.log(codigo)
+    console.log(quantidade)
+
+
+    div_validacao.innerHTML = `<br>Produto <b>${nomeProduto}</b> registrado com sucesso`
+}
+
+    function repor() {
+        var nomeProduto = ipt_nome.value
+        var codigoProduto = ipt_codigo.value
+        var quantidadeProduto = Number(ipt_qtd.value)
+
+        div_validacao.innerHTML = ``
+
+        let existeProduto = 0;
+        let existeCodigo = 0; 
+
+        for (let i = 0; i <= produto.length; i++) {
+            if (nomeProduto == produto[i]) {
+                existeProduto++
+            } 
+
+            if (codigoProduto == codigo[i]) {
+                existeCodigo++
+            }
+        }
+
+        console.log(existeCodigo)
+        console.log(existeProduto)
+
+        if (existeProduto == 0 || existeCodigo == 0) {
+            div_validacao.innerHTML = `Produto não identificado ou Código não identificado`
+            return
+        }
+
+        if (quantidadeProduto < 1) {
+            div_validacao.innerHTML = `Quantidade inválida`
+            return
+        }
+        
+
+
+    }
+</script>

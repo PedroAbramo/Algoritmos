@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Episódios</title>
+</head>
+
+<body>
+<center>
+    <p>Episódio que deseja começar assistindo:</p>
+    <input type="number" name="" id="ipt_nEpisodio">
+
+    <p>Quantidade de tempo disponível:</p>
+    <input type="number" name="" id="ipt_tempoDisp">
+
+    <p>Unidade de tempo em:</p>
+    <select name="" id="ipt_unidadeTemp">
+        <option value="0">Selecione uma opção</option>
+        <option value="1">Minutos</option>
+        <option value="2">Horas</option>
+    </select>
+
+    <p>Pular abertura?</p>
+    <select name="" id="ipt_abertura">
+        <option value="0">Selecione uma opção</option>
+        <option value="1">Sim</option>
+        <option value="2">Não</option>
+    </select>
+
+    <p>Pular encerramento?</p>
+    <select name="" id="ipt_encerramento">
+        <option value="0">Selecione uma opção</option>
+        <option value="1">Sim</option>
+        <option value="2">Não</option>
+    </select>
+        <br><br>
+
+        <button onclick="calculo()">Assistir Episódios</button>
+            <br><br>
+        <div id="div_exibir"></div>
+</center>
+</body>
+
+</html>
+
+<script>
+    function calculo() {
+        var nEpisodio = Number(ipt_nEpisodio.value)
+        var tempoDisp = Number(ipt_tempoDisp.value)
+        var unidadeTemp = Number(ipt_unidadeTemp.value)
+        var abertura = Number(ipt_abertura.value)
+        var fechamento = Number(ipt_encerramento.value)
+
+        // aceitar somente valor entre 1 ou 1100
+        while (nEpisodio > 1100 || nEpisodio < 1) {
+            alert('O número do episódio é inválido')
+            break
+        }
+        
+            if (unidadeTemp == 2) {
+                tempoDisp = tempoDisp * 60 // transformando hora para minutos
+            }
+
+            
+            // Com abertura ou sem e Com fechamento ou sem
+            var tempoEpisodio = 0
+            if (abertura == 1 && fechamento == 1) { //Sim Sim
+                tempoEpisodio = 20
+            }
+                else if (abertura == 2 && fechamento == 1) { // Não Sim
+                    tempoEpisodio = 22
+                }
+                else if (abertura == 1 && fechamento == 2) { // Sim Não
+                    tempoEpisodio = 22
+                }
+                else if (abertura == 2 && fechamento == 2) { // Não Não
+                    tempoEpisodio = 24
+                }
+                
+                var qtd_Episodios = tempoDisp / tempoEpisodio
+                console.log(qtd_Episodios)
+
+                div_exibir.innerHTML = `` // limpando div
+                // listar o episódio
+                var ep_quevaichegar = nEpisodio + qtd_Episodios
+                
+                var minutosTotais = 1
+                
+                for (i = nEpisodio; i < ep_quevaichegar; i++) {
+                    div_exibir.innerHTML += `<br><b>Episódio: ${i}</b>`
+                    
+                    // Listar minutos
+                    for (m = 1; m <= tempoEpisodio; m++) {
+                        if (minutosTotais <= tempoDisp) {
+                        div_exibir.innerHTML += `<br>Minuto ${m}:`
+
+                        minutosTotais++
+                        console.log(`Minuto: ${minutosTotais}`)
+
+                        if (abertura == 1 && fechamento == 1) { //Sim Sim
+                            div_exibir.innerHTML += `Assistindo o Episódio`
+                        }
+                        
+                        else if (abertura == 2 && fechamento == 1) { // Não Sim
+                            
+                            if (m < 3) {
+                                div_exibir.innerHTML += `Assistindo a Abertura`
+                            }
+                            else {
+                                div_exibir.innerHTML += `Assistindo o Episódio`
+                            }
+                        }
+                        
+                        else if (abertura == 1 && fechamento == 2) { // Sim Não
+                            if (m < 21) {
+                                div_exibir.innerHTML += `Assistindo o Episódio`
+                            }
+                            else {
+                                div_exibir.innerHTML += `Assistindo  o Encerramento`
+                            }   
+                        }
+                        
+                        else if (abertura == 2 && fechamento == 2) { // Não Não
+                            if (m < 3) {
+                                div_exibir.innerHTML += `Assistindo a Abertura`
+                            }
+                            if (m > 22) {
+                                div_exibir.innerHTML += `Assistindo  o Encerramento`
+                            } 
+                            if (m > 2 && m < 23) {
+                                div_exibir.innerHTML += `Assistindo  o Episódio`
+                            }
+                    }       
+                }
+            }
+        }
+            div_exibir.innerHTML += `<br> <b>Fim dos episódios!
+                                     <br> Foram assistidos: ${qtd_Episodios.toFixed(2)}</b>`
+        }
+    </script>

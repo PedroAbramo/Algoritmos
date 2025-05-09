@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Informe o destino da viagem:</p>
+    <input type="text" name="" id="ipt_destino">
+    <button onclick="calculo()">Adicionar</button>
+        <br>
+    <button onclick="primeira()">Primeira viagem</button>
+        <br>
+    <button onclick="ter()">Terceira viagem</button>
+        <br>
+    <button onclick="ultima()">Última viagem</button>
+        <div id="div_exibir"></div>
+</body>
+
+</html>
+
+<script>
+    const listaDestinos = []
+
+    function calculo() {
+
+        var adicionarDestino = ipt_destino.value
+
+        listaDestinos.push(adicionarDestino)
+
+        console.log(listaDestinos)
+
+        alert("Destino adicionado!")
+    }
+
+    function primeira() {
+        div_exibir.innerHTML = ``
+
+        if (listaDestinos.length == 0 ) {
+        div_exibir.innerHTML += `Ainda não viajou`
+        } else {
+
+            div_exibir.innerHTML += `Primeiro destino: ${listaDestinos[0]}`
+        }
+    }
+
+    function ter() {
+        div_exibir.innerHTML = ``
+
+        if (listaDestinos.length <= 1 ) {
+        div_exibir.innerHTML += `Ainda não fez a terceira viagem`
+        } else {
+            div_exibir.innerHTML += `Terceiro destino: ${listaDestinos[2]}` 
+        }
+    }
+
+    function ultima() {
+        div_exibir.innerHTML = ``
+
+        if (listaDestinos.length == 0 ) {
+            div_exibir.innerHTML += `Ainda não viajou`
+    } else {
+        div_exibir.innerHTML += `Ultimo destino: ${listaDestinos[listaDestinos.length - 1]}` 
+    }
+}
+</script>

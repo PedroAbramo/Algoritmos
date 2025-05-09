@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id="ipt_nome_fruta">
+    <button onclick="adicionar()">Adicionar fruta</button>
+
+    <button onclick="exibirVetor()">Testar</button>
+    <div id="div_resultado"></div>
+
+    <button onclick="resumo()">Ver resumo</button>
+    <div id="div_resumo"></div>
+</body>
+
+</html>
+
+<script>
+    const vetor = ["Goiaba", "Uva", "Morango"];
+    //                0        1        2
+
+    function exibirVetor() {
+        // lembrando que const não é possível reatribuir valores, alterando a variável inteira, mas modificar, como por exemplo, adicionar um valor é possível.
+
+        div_resultado.innerHTML = vetor
+    }
+
+    function adicionar() {
+        let nomeFruta = ipt_nome_fruta.value // com o let, essa variável existe somente dentro da função adicionar()
+
+        // indexOf retorna o indice da fruta que eu estou procurando (nomeFruta), caso ele não encontre, irá retornar "-1"
+            if(vetor.indexOf(nomeFruta) != -1) {
+                alert("Fruta já existe")
+            } else {
+        vetor.push(nomeFruta) // .push() adiciona um valor ao vetor, nesse caso irá inserir o valor de "nomeFruta"
+        alert("Fruta adicionada!")
+            }
+        }
+
+    function resumo() {
+        const tamanhoVetor = vetor.length
+        const primeiraFruta = vetor[0]
+        const ultimaFruta = vetor[tamanhoVetor - 1] // tamanhoVetor é igual ao tamanho total, e o -1, leva para a ultima fruta
+
+        div_resumo.innerHTML = `Tamanho vetor: ${tamanhoVetor}<br>
+                                Primeira fruta: ${primeiraFruta}<br>
+                                Ultima fruta: ${ultimaFruta}<br>`
+    }
+
+</script>

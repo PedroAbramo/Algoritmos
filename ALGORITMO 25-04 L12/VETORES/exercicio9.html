@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Quais os projetos que você já criou?</p>
+    <input type="text" name="" id="ipt_projetos">
+
+    <button onclick="registrar()">Registrar projeto</button>
+        <br><br>
+    <button onclick="mostrar()">Mostrar projetos</button>
+    <div id="div_exibir"></div>
+</body>
+
+</html>
+
+<script>
+    const projetos = []
+
+    function registrar() {
+        projetos.push(ipt_projetos.value)
+
+        var profissional
+
+        if (projetos.length <= 4) {
+            profissional = "Júnior"
+        } else if (projetos.length > 4 && projetos.length <= 12) {
+            profissional = "Pleno"
+        } else if (projetos.length > 12) {
+            profissional = "Sênior"
+        }
+
+        div_exibir.innerHTML = `Você já fez ${projetos.length} projetos. Por isso você é um profissional ${profissional}`
+    }
+
+    function mostrar() {
+
+        for (let i = 1; i <= projetos.length; i++)
+        div_exibir.innerHTML += `<br>${projetos[projetos.length - i]}`
+    }
+</script>

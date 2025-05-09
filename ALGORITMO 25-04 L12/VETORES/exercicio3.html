@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Informe o nome do bairro que morou:</p>
+    <input type="text" name="" id="ipt_bairro">
+        <br><br>
+    <button onclick="calculo()">Cadastrar Bairro</button>
+
+    <p>Informe um número</p>
+    <input type="number" name="" id="ipt_n">
+        <br><br>
+    <button onclick="relembrar()">Relembrar Moradia</button>
+        <br><br>
+    <div id="div_exibir"></div>
+</body>
+
+</html>
+
+<script>
+    const bairros = []
+    function calculo() {
+        bairros.push(ipt_bairro.value)
+        console.log(bairros)
+
+    }
+
+    function relembrar() {
+        div_exibir.innerHTML = `${ipt_n.value}º bairro cadastrado: ${bairros[bairros.length - 1]}`
+
+        bairros.length - 1
+    }
+</script>

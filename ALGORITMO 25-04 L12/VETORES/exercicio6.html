@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Informe os filmes que mais gosta:</p>
+    <input type="text" name="" id="ipt_filme">
+        <br><br>
+    <button onclick="calculo()">Cadastrar</button>
+        <br><br>
+    <div id="div_exibir"></div>
+</body>
+
+</html>
+
+<script>
+    const filmes = []
+
+
+    function calculo() {
+        div_exibir.innerHTML = ``
+
+        filmes.push(ipt_filme.value)
+        alert("Filme adicionado com sucesso!")
+
+        for (let i = 0; i < filmes.length; i++) {
+        div_exibir.innerHTML += `<br>${filmes[i]}`
+        }
+    }
+</script>

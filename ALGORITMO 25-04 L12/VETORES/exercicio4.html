@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Informe os filmes que mais gosta em ordem:</p>
+    <input type="text" name="" id="ipt_filme">
+        <br>
+    <button onclick="calculo()">Cadastrar filme</button>
+        <br><br>
+    <button onclick="ver()">Ver favoritos</button>
+        <br>
+    <div id="div_exibir"></div>
+</body>
+
+</html>
+
+<script>
+    const filmes = []
+    
+    function calculo() {
+        filmes.push(ipt_filme.value)
+        console.log(filmes)
+
+    }
+
+    function ver() {
+        div_exibir.innerHTML = ``
+        for (i = 0; i < filmes.length; i++){
+        div_exibir.innerHTML += `<br>${filmes[i]}`
+        }
+
+        div_exibir.innerHTML += `<br><br>Total: <b>${filmes.length}</b>`
+        div_exibir.innerHTML += `<br><br>O que mais gosta é: <b>${filmes[0]}</b>`
+        div_exibir.innerHTML += `<br><br>O que menos gosta é: <b>${filmes[filmes.length - 1]}</b>`
+
+    }
+</script>

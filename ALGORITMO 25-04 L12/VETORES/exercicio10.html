@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Quais linhas você já pegou essa semana?</p>
+    <input type="text" name="" id="ipt_busao">
+
+    <button onclick="gravar()">Gravar busão</button>
+        <br><br>
+    <div id="div_exibir"></div>
+        <br><br>
+    <p>Pesquisar por linha:</p>
+    <input type="text" name="" id="ipt_pesquisa">
+    <button onclick="pesquisar()">Pesquisar</button>
+        <br><br>
+        <div id="div_pesquisa"></div>
+</body>
+
+</html>
+
+<script>
+    const linhas = []
+
+    function gravar() {
+        div_exibir.innerHTML = ``
+        linhas.push(ipt_busao.value)
+
+        for (let i = 1; i <= linhas.length; i++){
+            div_exibir.innerHTML += `<br>${linhas[linhas.length - i]}`
+        }
+    }
+
+    var qtd_vezes = 0;
+    const ordem = [];
+
+    function pesquisar() {
+        var pesquisa = ipt_pesquisa.value
+
+        for (let i = 0; i <= linhas.length; i++) {
+            if (pesquisa == linhas[i]) {
+                qtd_vezes += 1
+
+                ordem.push(i+1)
+            }
+        }
+        div_pesquisa.innerHTML = `Você já pegou essa linha ${qtd_vezes} vezes, nessa ordem: ${ordem} `
+    }
+</script>

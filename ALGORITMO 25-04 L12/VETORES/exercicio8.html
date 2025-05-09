@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Informe o nome dos usuários:</p>
+    <input type="text" name="" id="ipt_nome">
+        <br><br>
+    
+    <button onclick="calculo()">Cadastrar</button>
+        <br><br>
+    <div id="div_mensagem"></div>
+
+
+</body>
+
+</html>
+
+<script>
+    const lista = []
+
+    function calculo() {
+        div_mensagem.innerHTML = `` 
+        lista.push(ipt_nome.value)
+        console.log(lista)
+        
+        
+        for (i = 1; i <= lista.length; i++){
+        div_mensagem.innerHTML += `<br>${lista[lista.length - i]}`
+        }
+    }
+</script>
