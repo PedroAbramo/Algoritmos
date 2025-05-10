@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Cadastrar Comida</h3>
+    <p>Cadastrar Estoque de Comidas:</p>
+    <input type="text" name="" id="ipt_comida_cadastrada">
+        <br><br>
+
+    <button onclick="cadastrar()">Cadastrar</button>
+    <div id="div_cadastrar"></div>
+        <br><br>
+    <h3>Verificar quantidade de comida</h3>
+    <button onclick="verificarQuantidade()">Verificar Quantidade</button>
+    <div id="div_verificarQuantidade"></div>
+    
+    <h3>Pesqusiar Comida</h3>
+    <p>Insira uma comida para pesquisar:</p>
+    <input type="text" name="" id="ipt_pesquisa">
+        <br><br>
+
+    <button onclick="pesquisar()">Pesquisar</button>
+    <div id="div_pesquisar"></div>
+        <br><br>
+
+    <h3>Exibir Estoque</h3>
+    <button onclick="exibirEstoque()">Exibir Estoque</button>
+
+    <h3>Alterar o nome de uma comida:</h3>
+    <p>Insira o nome atual:</p>
+    <input type="text" name="" id="ipt_nomeAtual">
+        <br><br>
+    
+    <p>Insira o novo nome:</p>
+    <input type="text" name="" id="ipt_novoNome">
+        <br><br>
+    <button onclick="alterar()">Alterar Nome</button>
+    <div id="div_novoNome"></div>
+
+    <h3>Remover uma comida:</h3>
+    <p>Insira o nome da comida que deseja remover:</p>
+    <input type="text" name="" id="ipt_comidaRemover">
+    <button onclick="remover()">Remover</button>
+    <div id="div_remover"></div>
+</body>
+
+</html>
+
+<script>
+    const listaComidas = []
+
+    function cadastrar() {
+        const comidaCadastrada = ipt_comida_cadastrada.value
+
+        listaComidas.push(comidaCadastrada)
+        console.log(listaComidas)
+
+        div_cadastrar.innerHTML = `Alimento Cadastrado com sucesso!`
+
+
+    }
+    
+    
+    function verificarQuantidade() {
+        const tamanhoLista = listaComidas.length
+
+        console.log(`Tamanho: ${tamanhoLista}`)
+
+        if (tamanhoLista < 3) {
+            div_verificarQuantidade.innerHTML = `Desse jeito, o Luffy devora até o navio`
+        } else if (tamanhoLista <= 7) {
+            div_verificarQuantidade.innerHTML = `O comilão do Luffy não vai deixar sobrar nenhuma comida`
+        } else if (tamanhoLista <= 10) {
+            div_verificarQuantidade.innerHTML = `Assim, talvez sobre um pouco para a tripulação`
+        } else if (tamanhoLista > 10) {
+            div_verificarQuantidade.innerHTML = `Desse jeito vai ter comida para todo mundo e ainda consigo guardar um pouco para a senhorita Nami!`
+        }
+    }
+
+    function pesquisar() {
+        let frutaExiste = false;
+        let quantidadeFruta = 0;
+        const pesquisarFruta = ipt_pesquisa.value
+
+        for (let i = 0; i < listaComidas.length; i++) {
+            if(pesquisarFruta == listaComidas[i]) {
+                frutaExiste = true
+                quantidadeFruta++
+            }
+        }
+
+        if (frutaExiste) {
+            div_pesquisar.innerHTML = `Temos a comida <b>${pesquisarFruta}</b> e há <b>${quantidadeFruta}</b> unidade(s) dela`
+        } else { 
+            div_pesquisar.innerHTML = `Alguém vai ter que comprar <b>${pesquisarFruta}</b>, tá fazendo falta!`
+        }
+    }
+
+    function alterar() {
+        const nomeAtual = ipt_nomeAtual.value
+        const nomeNovo = ipt_novoNome.value
+
+        let nomeExiste = false;
+
+        for (let i = 0; i < listaComidas.length; i++) {
+            if (nomeAtual == listaComidas[i]) {
+                nomeExiste = true
+            }
+        }   
+
+            if (!nomeExiste) {
+                div_novoNome.innerHTML = `A  comida ${nomeAtual} não foi encontrada no estoque.`
+            }
+
+            if (nomeExiste) {
+                for (let i = 0; i < listaComidas.length; i++) {
+                    if (nomeAtual == listaComidas[i]) {
+                        listaComidas[i] = nomeNovo
+                    }
+                }
+
+                div_novoNome.innerHTML = `A comida <b>${nomeAtual}</b> foi altera para <b>${nomeNovo}</b>`
+            }
+    }
+
+    function remover() {
+        const comidaRemover = ipt_comidaRemover.value
+
+        let comidaExiste = false
+
+        for (let i = 0; i < listaComidas.length; i++) {
+            if (comidaRemover == listaComidas[i]) {
+                comidaExiste = true
+            }
+        }   
+
+            if (!comidaExiste) {
+                div_remover.innerHTML = `A  comida ${nomeAtual} não está no estoque.`
+            }
+
+            if (comidaExiste) {
+                for (let i = listaComidas.length - 1; i >= 0; i--) {
+                    if (comidaRemover == listaComidas[i]) {
+                        listaComidas.splice(i,1)
+                    }
+                }
+
+                div_remover.innerHTML = `A  comida <b>${comidaRemover}</b> foi removida do estoque.`
+                console.log(listaComidas)
+    }
+}
+
+</script>
